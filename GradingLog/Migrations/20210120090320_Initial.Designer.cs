@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GradingLog.Migrations
 {
     [DbContext(typeof(GradingLogDbContext))]
-    [Migration("20210117180613_Initial")]
+    [Migration("20210120090320_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
