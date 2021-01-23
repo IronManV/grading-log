@@ -1,4 +1,5 @@
 To add data to databse use this query.
+```
 INSERT INTO Teachers (FirstName,LastName,Login,Password,Title) VALUES ('Pablo','Escobar','pabloecobal@gmail.com','!Qaz2wsx','Mgr')
 INSERT INTO Teachers (FirstName,LastName,Login,Password,Title) VALUES ('Renie', 'Sheehy', 'rsheehy0@unicef.org', 'nkjOhkwWi8u','Mgr')
 INSERT INTO Teachers (FirstName,LastName,Login,Password,Title) VALUES ('Lani', 'Beckey', 'lbeckey1@comcast.net', 'LkzP72','Mgr')
@@ -115,7 +116,4 @@ INSERT INTO Grades (TeacherId,StudentId,SchoolSubjectId,Grade) VALUES (5,2,9,3);
 INSERT INTO Grades (TeacherId,StudentId,SchoolSubjectId,Grade) VALUES (5,2,9,3);
 INSERT INTO Grades (TeacherId,StudentId,SchoolSubjectId,Grade) VALUES (5,2,9,3);
 INSERT INTO Grades (TeacherId,StudentId,SchoolSubjectId,Grade) VALUES (5,2,9,3);
-
-
-
-
+```
