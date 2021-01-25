@@ -1,0 +1,14 @@
+﻿@model List<GradingLog.Entities.SchoolSubjectEntity>
+
+<div class="layout">
+    <div class="teacher__header">
+        <h1>Subjects list</h1>
+    </div>
+    <ul>
+        @foreach(var subject in Model)
+        {
+            <li>@subject.Name</li>
+        }
+    </ul>
+
+</div>
