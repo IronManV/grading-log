@@ -1,0 +1,6 @@
+﻿.layout {
+    display: flex;
+    margin: 0 auto;
+    width: 70%;
+    flex-direction: column;
+}

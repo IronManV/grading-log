@@ -19,7 +19,7 @@ namespace GradingLog.Database
         public DbSet<GradeEntity> Grades { get; set; }
 
 
-    protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
         }
     }
