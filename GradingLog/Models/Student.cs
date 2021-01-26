@@ -7,6 +7,6 @@ namespace GradingLog.Models
 {
     public class Student : User
     {
-
+        public float Semester { get; set; }
     }
 }

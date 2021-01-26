@@ -7,5 +7,6 @@ namespace GradingLog.Models
 {
     public class Teacher : User
     {
+        public string Title { get; set; }
     }
 }
