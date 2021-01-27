@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GradingLog.Models;
 using GradingLog.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace GradingLog.Controllers
 {
@@ -29,55 +30,51 @@ namespace GradingLog.Controllers
             {
                 return Index();
             }
-                var IsStudent = _dbContext.Students.Any(a => a.Login == user.Login);
 
-                if (IsStudent == true)
+            var IsStudent = _dbContext.Students.Any(a => a.Login == user.Login);
+
+            if (IsStudent == true)
+            {
+                //student entity
+                var student = _dbContext.Students.Where(a => a.Login == user.Login).Single();
+
+                if (student.Login == user.Login && student.Password == user.Password)
                 {
-                    var students = _dbContext.Students.Where(a => a.Login == user.Login).Single();
+                    var models = new EntitiesModel();
 
-                    if (students.Login == user.Login && students.Password == user.Password)
-                    {
-                        var student = new Student
-                        {
-                            Id = students.Id,
-                            Login = students.Login,
-                            Password = students.Password,
-                            FirstName = students.FirstName,
-                            LastName = students.LastName,
-                            Semester = students.Semester
-                        };
-                        return View("StudentView", student);
-                    }
-                    //login error view or error message
-                    return View();
-                } 
+                    models.studentEntitiy = student;
+                    models.SchedulesEntity = _dbContext.Schedules.Include(x => x.SchoolSubject).Include(x => x.SchoolSubject.Teacher).Where(x => x.Student.Id == student.Id).ToList();
+                    models.GradesEntity = _dbContext.Grades.Include(x => x.SchoolSubject).Include(x => x.Teacher).Where(x => x.Student.Id == student.Id).ToList();
+
+                    return View("StudentView",  models);
+                }
+
+                //login error view or error message
+                return Index();
+            } 
 
          
-                var IsTeacher = _dbContext.Teachers.Any(a => a.Login == user.Login);
+            var IsTeacher = _dbContext.Teachers.Any(a => a.Login == user.Login);
 
-                if (IsTeacher == true)
+            if (IsTeacher == true)
+            {
+                //teacher entity
+                var teacher = _dbContext.Teachers.Where(a => a.Login == user.Login).Single();
+
+                if(teacher.Login == user.Login && teacher.Password == user.Password)
                 {
-                    var teachers = _dbContext.Teachers.Where(a => a.Login == user.Login).Single();
+                    var models = new EntitiesModel();
 
-                    if(teachers.Login == user.Login && teachers.Password == user.Password)
-                    {
-                        var teacher = new Teacher
-                        {
-                            Id = teachers.Id,
-                            Login = teachers.Login,
-                            Password = teachers.Password,
-                            FirstName = teachers.FirstName,
-                            LastName = teachers.LastName,
-                            Title = teachers.Title
-                        };
+                    models.teacherEntity = teacher;
+                    models.SchoolSubjectsEntity = _dbContext.SchoolSubjects.Where(x => x.Teacher.Id == teacher.Id).ToList();
 
-                        return View("TeacherView", teacher);
-                    }
-                    //login error view or error message
-                    return View();
+                    return View("TeacherView", models);
                 }
-            return View();
-        }
 
+                //login error view or error message
+                return Index();
+            }
+            return Index();
+        }
     }
 }
