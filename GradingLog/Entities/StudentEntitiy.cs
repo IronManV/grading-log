@@ -17,5 +17,10 @@ namespace GradingLog.Entities
         public string Login { get; set; }
         public string Password { get; set; }
         public int Semester { get; set; }
+
+        public static implicit operator List<object>(StudentEntitiy v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
