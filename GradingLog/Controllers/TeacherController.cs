@@ -20,7 +20,7 @@ namespace GradingLog.Controllers
         {
             var subjects = _dbContext.SchoolSubjects.ToList();
 
-            return View("Index", subjects);
+            return View("TeacherView", subjects);
         }
     }
 }
