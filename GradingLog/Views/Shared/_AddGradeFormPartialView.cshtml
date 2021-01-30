@@ -1,0 +1,22 @@
+﻿@model EntitiesModel
+
+<form asp-controller="Subject" asp-action="AddGrade" method="post">
+    <div class="mb-3">
+        <input asp-for="@Model.gradeModel.TeacherId" class="form-control" id="teacherId" value="@Model.subjectsEntity.Teacher.Id" hidden>
+    </div>
+    <div class="mb-3">
+        <input asp-for="@Model.gradeModel.SchoolSubjectId" class="form-control" id="schoolSubjectId" value="@Model.subjectsEntity.Id" hidden>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="@Model.gradeModel.StudentId" for="studentId" class="form-label">StudentId</label>
+        <input asp-for="@Model.gradeModel.StudentId" type="number" class="form-control" id="studentId">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="@Model.gradeModel.Grade" for="grade" class="form-label">Grade</label>
+        <input asp-for="@Model.gradeModel.Grade" type="number"  step="1" min="2" max="5" class="form-control" id="grade">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add grade</button>
+</form>
