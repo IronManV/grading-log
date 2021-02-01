@@ -1,0 +1,23 @@
+﻿@model EntitiesModel
+
+<p>@Model.subjectsEntity.Teacher.FirstName, @Model.subjectsEntity.Teacher.LastName, @Model.subjectsEntity.Teacher.Title, @Model.subjectsEntity.Name</p>
+
+<ul>
+    @foreach (var student in Model.SchedulesEntity)
+    {
+        <li>
+            @student.Student.Id, @student.Student.FirstName, @student.Student.LastName,
+            @foreach (var grades in Model.GradesEntity)
+            {
+                if (grades.Student.Id == student.Student.Id)
+                {
+                    @grades.Grade;
+
+                }
+            }
+        </li>
+    }
+</ul>
+
+<partial name="_AddGradeFormPartialView" />
+

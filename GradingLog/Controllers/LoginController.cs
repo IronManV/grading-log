@@ -40,16 +40,16 @@ namespace GradingLog.Controllers
 
                 if (student.Login == user.Login && student.Password == user.Password)
                 {
-                    var models = new EntitiesModel();
-
-                    models.studentEntitiy = student;
-                    models.SchedulesEntity = _dbContext.Schedules.Include(x => x.SchoolSubject).Include(x => x.SchoolSubject.Teacher).Where(x => x.Student.Id == student.Id).ToList();
-                    models.GradesEntity = _dbContext.Grades.Include(x => x.SchoolSubject).Include(x => x.Teacher).Where(x => x.Student.Id == student.Id).ToList();
+                    var models = new EntitiesModel()
+                    {
+                        studentEntitiy = student,
+                        SchedulesEntity = _dbContext.Schedules.Include(x => x.SchoolSubject).Include(x => x.SchoolSubject.Teacher).Where(x => x.Student.Id == student.Id).ToList(),
+                        GradesEntity = _dbContext.Grades.Include(x => x.SchoolSubject).Include(x => x.Teacher).Where(x => x.Student.Id == student.Id).ToList(),
+                    };
 
                     return View("StudentView",  models);
                 }
 
-                //login error view or error message
                 return Index();
             } 
 
@@ -63,15 +63,14 @@ namespace GradingLog.Controllers
 
                 if(teacher.Login == user.Login && teacher.Password == user.Password)
                 {
-                    var models = new EntitiesModel();
-
-                    models.teacherEntity = teacher;
-                    models.SchoolSubjectsEntity = _dbContext.SchoolSubjects.Where(x => x.Teacher.Id == teacher.Id).ToList();
-
+                    var models = new EntitiesModel
+                    {
+                        teacherEntity = teacher,
+                        SchoolSubjectsEntity = _dbContext.SchoolSubjects.Where(x => x.Teacher.Id == teacher.Id).ToList(),
+                    };
+                    
                     return View("TeacherView", models);
                 }
-
-                //login error view or error message
                 return Index();
             }
             return Index();

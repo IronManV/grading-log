@@ -1,18 +1,18 @@
-﻿@model User 
+﻿@model User
 
-<div id="login" class="layout">
-    <h1>LogIn</h1>
-    <div class="login__form-wrapper">
-        <form asp-controller="Login" method="post">
-            <div class="mb-3">
-                <label asp-for="Login" for="Email" class="form-label">Email</label>
-                <input asp-for="Login" type="email" class="form-control" id="email">
-            </div>
-            <div class="mb-3">
-                <label asp-for="Password" for="password" class="form-label">Password</label>
-                <input asp-for="Password" type="password" class="form-control" id="password">
-            </div>
-            <button type="submit" class="btn btn-primary">LogIn</button>
-        </form>
+    <div id="login" class="layout">
+        <h1>LogIn</h1>
+        <div class="login__form-wrapper">
+            <form asp-controller="Login" method="post">
+                <div class="mb-3">
+                    <label asp-for="Login" for="Email" class="form-label">Email</label>
+                    <input asp-for="Login" type="email" class="form-control" id="email">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" for="password" class="form-label">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary">LogIn</button>
+            </form>
+        </div>
     </div>
-</div>

@@ -6,11 +6,11 @@
     </div>
     <p>@Model.teacherEntity.FirstName</p>
     <p>@Model.teacherEntity.LastName</p>
+    <p>@Model.teacherEntity.Title</p>
 
-    <ul>
-        @foreach (var schoolSubject in Model.SchoolSubjectsEntity)
-        {
-            <li>@schoolSubject.Name</li>
-        }
-    </ul>
+    @foreach (var schoolSubject in Model.SchoolSubjectsEntity)
+    {
+        @Html.ActionLink(schoolSubject.Name, "index", "subject", schoolSubject)
+    }
+
 </div>
