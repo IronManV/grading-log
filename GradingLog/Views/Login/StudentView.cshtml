@@ -5,20 +5,20 @@
         <h1>Student</h1>
     </div>
     <p>@Model.studentEntitiy.FirstName, @Model.studentEntitiy.LastName, @Model.studentEntitiy.Semester</p>
+
+    <ul>
+        @foreach (var schedudel in Model.SchedulesEntity)
+        {
+            <li>@schedudel.SchoolSubject.Name, @schedudel.SchoolSubject.Teacher.FirstName @schedudel.SchoolSubject.Teacher.LastName</li>
+        }
+    </ul>
+
+    <ul>
+        @foreach (var grade in Model.GradesEntity)
+        {
+            <li>@grade.SchoolSubject.Name, @grade.Grade</li>
+        }
+    </ul>
 </div>
-
-<ul>
-    @foreach (var schedudel in Model.SchedulesEntity)
-    {
-        <li>@schedudel.SchoolSubject.Name, @schedudel.SchoolSubject.Teacher.FirstName @schedudel.SchoolSubject.Teacher.LastName</li>
-    }
-</ul>
-
-<ul>
-    @foreach (var grade in Model.GradesEntity)
-    {
-    <li>@grade.SchoolSubject.Name, @grade.Grade</li>
-    }
-</ul>
 
 

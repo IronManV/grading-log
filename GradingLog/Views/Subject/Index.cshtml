@@ -1,23 +1,37 @@
 ﻿@model EntitiesModel
 
-<p>@Model.subjectsEntity.Teacher.FirstName, @Model.subjectsEntity.Teacher.LastName, @Model.subjectsEntity.Teacher.Title, @Model.subjectsEntity.Name</p>
+<div class="layout">
+    <div class="subject__header">
+        <h1 class="subject__header-title">Subject</h1>
+    </div>
+    <div class="subject__name">@Model.subjectsEntity.Name</div>
 
-<ul>
-    @foreach (var student in Model.SchedulesEntity)
-    {
-        <li>
-            @student.Student.Id, @student.Student.FirstName, @student.Student.LastName,
-            @foreach (var grades in Model.GradesEntity)
-            {
-                if (grades.Student.Id == student.Student.Id)
+    <div class="subject__students">
+        @foreach (var student in Model.SchedulesEntity)
+        {
+            <div class="subject__student">
+                <span class="subject__student-id">
+                    @student.Student.Id
+                </span>
+                <span class="subject__student-name">
+                    @student.Student.FirstName @student.Student.LastName
+                </span>
+
+
+                @foreach (var grades in Model.GradesEntity)
                 {
-                    @grades.Grade;
+                    if (grades.Student.Id == student.Student.Id)
+                    {
+                        <span class="subject__student-grade">
+                            @grades.Grade,
+                        </span>
 
+                    }
                 }
-            }
-        </li>
-    }
-</ul>
+            </div>
+        }
+    </div>
+    <partial name="_AddGradeFormPartialView" />
+</div>
 
-<partial name="_AddGradeFormPartialView" />
 

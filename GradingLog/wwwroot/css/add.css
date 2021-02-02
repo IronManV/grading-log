@@ -1,0 +1,10 @@
+﻿.add__confirmation {
+    margin-top:20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.add__checkmark {
+    width: 50px;
+    height: auto;
+}
