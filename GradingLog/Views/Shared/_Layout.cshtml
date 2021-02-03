@@ -4,22 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GradingLog</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/login.css" />
-    <link rel="stylesheet" href="~/css/layout.css" />
+    <link rel="stylesheet" href="~/css/shared.css" />
     <link rel="stylesheet" href="~/css/teacher.css" />
+    <link rel="stylesheet" href="~/css/subject.css" />
+    <link rel="stylesheet" href="~/css/add.css" />
+    <link rel="stylesheet" href="~/css/student.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Login" asp-action="Index">GradingLog</a>
-            </div>
-        </nav>
+    <header class="header">
+        <a class="header__logo" asp-area="" asp-controller="Login" asp-action="Index">GradingLog</a>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 pt-3">
             @RenderBody()
         </main>
     </div>

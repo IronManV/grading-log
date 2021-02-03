@@ -1,5 +1,10 @@
 ﻿.login__form-wrapper {
     margin-top: 50px;
-    
     width: 30%;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

@@ -3,16 +3,16 @@
     <div id="login" class="layout">
         <h1>LogIn</h1>
         <div class="login__form-wrapper">
-            <form asp-controller="Login" method="post">
-                <div class="mb-3">
+            <form asp-controller="Login" method="post" class="login__form">
+                <div class="form__group">
                     <label asp-for="Login" for="Email" class="form-label">Email</label>
-                    <input asp-for="Login" type="email" class="form-control" id="email">
+                    <input asp-for="Login" type="email" class="form__input" id="email">
                 </div>
-                <div class="mb-3">
+                <div class="form__group">
                     <label asp-for="Password" for="password" class="form-label">Password</label>
-                    <input asp-for="Password" type="password" class="form-control" id="password">
+                    <input asp-for="Password" type="password" class="form__input" id="password">
                 </div>
-                <button type="submit" class="btn btn-primary">LogIn</button>
+                <button type="submit" class="form__submit">LogIn</button>
             </form>
         </div>
     </div>

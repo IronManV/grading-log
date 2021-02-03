@@ -2,23 +2,30 @@
 
 <div class="layout">
     <div class="student__header">
-        <h1>Student</h1>
+        <h1 class="student__header-title">Student</h1>
     </div>
-    <p>@Model.studentEntitiy.FirstName, @Model.studentEntitiy.LastName, @Model.studentEntitiy.Semester</p>
+    <span class="student__name">@Model.studentEntitiy.FirstName @Model.studentEntitiy.LastName, Semester:@Model.studentEntitiy.Semester</span>
+
+    <h2 class="student__subjects-title">Schedule</h2>
+
+    <div class="student__subjects-table">
+        <div class="student__subject student__subject--title"><span class="student__subject-primary">NAME</span><span class="student__subject-secondary">TEACHER</span></div>
+        @foreach (var schedule in Model.SchedulesEntity)
+        {
+            <div class="student__subject"><span class="student__subject-primary">@schedule.SchoolSubject.Name</span><span class="student__subject-secondary">@schedule.SchoolSubject.Teacher.FirstName @schedule.SchoolSubject.Teacher.LastName</span></div>
+        }
+    </div>
+
+    <h2 class="student__subjects-title">Recent Grades</h2>
+
+    <div class="student__subjects-table">
+        <div class="student__subject student__subject--title"><span class="student__subject-primary">SUBJECT NAME</span><span class="student__subject-secondary">GRADE</span></div>
+
+        @foreach (var grade in Model.GradesEntity)
+        {
+            <div class="student__subject"><span class="student__subject-primary">@grade.SchoolSubject.Name</span><span class="student__subject-secondary">@grade.Grade</span></div>
+        }
+    </div>
 </div>
-
-<ul>
-    @foreach (var schedudel in Model.SchedulesEntity)
-    {
-        <li>@schedudel.SchoolSubject.Name, @schedudel.SchoolSubject.Teacher.FirstName @schedudel.SchoolSubject.Teacher.LastName</li>
-    }
-</ul>
-
-<ul>
-    @foreach (var grade in Model.GradesEntity)
-    {
-    <li>@grade.SchoolSubject.Name, @grade.Grade</li>
-    }
-</ul>
 
 

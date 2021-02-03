@@ -1,16 +1,22 @@
 ﻿@model GradingLog.Models.EntitiesModel
 
 <div class="layout">
-    <div class="student__header">
-        <h1>Teacher</h1>
+    <div class="teacher__header">
+        <h1 class="teacher__header-title">Teacher</h1>
     </div>
-    <p>@Model.teacherEntity.FirstName</p>
-    <p>@Model.teacherEntity.LastName</p>
-    <p>@Model.teacherEntity.Title</p>
+    <div class="teacher__name">@Model.teacherEntity.Title @Model.teacherEntity.LastName @Model.teacherEntity.FirstName</div>
 
-    @foreach (var schoolSubject in Model.SchoolSubjectsEntity)
-    {
-        @Html.ActionLink(schoolSubject.Name, "index", "subject", schoolSubject)
-    }
+    <h2 class="teacher__subjects-header">Subjects</h2>
+    <div class="teacher__subjects">
 
-</div>
+        @foreach (var schoolSubject in Model.SchoolSubjectsEntity)
+        {
+            <div class="teacher__subject">
+                @Html.ActionLink(schoolSubject.Name, "index", "subject", schoolSubject)
+                <img src="~/assets/arrow.png"  class="teacher__arrow"/>
+            </div>
+
+        }
+
+    </div>
+</div> 
