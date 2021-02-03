@@ -1,0 +1,49 @@
+﻿.student__header {
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    justify-content: center;
+}
+
+.student__header-title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.student__name {
+    font-size: 36px;
+    font-weight: 300;
+}
+
+.student__subjects-title {
+    margin-top: 40px;
+}
+
+.student__subjects-table {
+    display: flex;
+
+    margin-top: 15px;
+    padding: 10px 40px 40px;
+
+    width: 400px;
+
+    flex-direction: column;
+
+    border: 1px #ffffff solid;
+    border-radius: 10px;
+}
+
+.student__subject{
+    display: flex;
+
+    margin-top: 10px;
+
+    width: 100%; 
+
+    justify-content: space-between;
+}
+
+.student__subject--title {
+    font-weight: 700;
+}
+
