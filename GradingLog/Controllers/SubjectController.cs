@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using GradingLog.Database;
 using GradingLog.Entities;
@@ -29,8 +31,8 @@ namespace GradingLog.Controllers
 
             if (IsSubject == true)
             {
-               /* //student entity
-                var subject = */
+                /* //student entity
+                 var subject = */
 
                 var models = new EntitiesModel();
 
@@ -59,7 +61,21 @@ namespace GradingLog.Controllers
 
             _dbContext.Grades.Add(addGrade);
             _dbContext.SaveChanges();
-            return View("AddGradeView");
+
+            SendNotification(addGrade.Teacher, addGrade.Grade, addGrade.SchoolSubject);
+
+            return View("AddGradeView", addGrade);
+        }
+
+        public void SendNotification(TeacherEntity teacher, float grade, SchoolSubjectEntity subject)
+        {
+            var client = new SmtpClient("smtp.mailtrap.io", 2525)
+            {
+                Credentials = new NetworkCredential("f5955d6c4a5994", "80775e91c1ea73"),
+                EnableSsl = true
+            };
+            string message = $"{teacher.Title} {teacher.FirstName} {teacher.LastName} has jus gave you ${grade}, from ${subject.Name} ";
+            client.Send("from@example.com", "to@example.com", "Grade notification", message);
         }
     }
 }
