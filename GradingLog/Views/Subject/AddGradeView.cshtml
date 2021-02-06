@@ -1,4 +1,10 @@
-﻿<div class="layout">
+﻿@model GradingLog.Entities.GradeEntity
+
+<div class="layout">
     <img src="~/assets/draw-check-mark.svg" class="add__checkmark" />
-    <span class="add__confirmation">Dodano ocenę.<br/> Powiadomienie mailowe zostało wysłane</span>
+    <span class="add__confirmation">Grade was added correctly.<br /> Mail notification has been sent</span>
+    <div class="add__go-back">
+        @Html.ActionLink("add more grades", "index", "subject", Model.SchoolSubject)
+    </div>
+
 </div>

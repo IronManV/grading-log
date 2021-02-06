@@ -59,7 +59,7 @@ namespace GradingLog.Controllers
 
             _dbContext.Grades.Add(addGrade);
             _dbContext.SaveChanges();
-            return View("AddGradeView");
+            return View("AddGradeView", addGrade);
         }
     }
 }
