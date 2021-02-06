@@ -1,4 +1,23 @@
-To add data to databse use this query.
+# <center> Grading Log </center>
+
+Prosta aplikacja webowa działajaca podobnie do dziennika elektronicznego. Logowanie zostało zasymulowane danymi "zahardcodowanymi" w bazie danych w celu rozróżnienia użytkowników. Użytkownicy aplikacji to:
+
+- Prowadzący (Teacher)
+- Student
+
+Po zalogowaniu aplikacja rozpoznaje wyżej wymienioną rolę użytkownika i przekierowuje do właściwej strony
+
+## Scenariusz studenta:
+
+Student po zalogowaniu ma dostęp do listy swoich przedmiotów wraz z prowadzącymi.
+Poniżej wyświetlają się najnowsze oceny, które zostały dodane studentowi przez prowazdącego.
+
+## Scenariusz prowadzącego (Teacher):
+
+Po zalogowaniu wyświetla się lista przedmiotów do których jest przypisany. Na stronie pojdynczego przedmiotu wyświetla sie lista studentów i poniżej formularz dodawania oceny. Po wysłaniu formularza dodaje się ona do bazy oraz na email studenta zostaje wysłane powiadomienie - jaką dostał ocenę, z jakiego przedmiotu oraz kto ją wpisał.
+
+Poniżej SQL query, służące do wypełnienia bazy danych tzw. "dummy-content".
+
 ```
 INSERT INTO Teachers (FirstName,LastName,Login,Password,Title) VALUES ('Pablo','Escobar','pabloecobal@gmail.com','!Qaz2wsx','Mgr')
 INSERT INTO Teachers (FirstName,LastName,Login,Password,Title) VALUES ('Renie', 'Sheehy', 'rsheehy0@unicef.org', 'nkjOhkwWi8u','Mgr')
