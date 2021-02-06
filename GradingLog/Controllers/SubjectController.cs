@@ -62,20 +62,20 @@ namespace GradingLog.Controllers
             _dbContext.Grades.Add(addGrade);
             _dbContext.SaveChanges();
 
-            SendNotification(addGrade.Teacher, addGrade.Grade, addGrade.SchoolSubject);
+            SendNotification(addGrade.Teacher, addGrade.Grade, addGrade.SchoolSubject, addGrade.Student);
 
             return View("AddGradeView", addGrade);
         }
 
-        public void SendNotification(TeacherEntity teacher, float grade, SchoolSubjectEntity subject)
+        public void SendNotification(TeacherEntity teacher, float grade, SchoolSubjectEntity subject, StudentEntitiy student)
         {
             var client = new SmtpClient("smtp.mailtrap.io", 2525)
             {
                 Credentials = new NetworkCredential("f5955d6c4a5994", "80775e91c1ea73"),
                 EnableSsl = true
             };
-            string message = $"{teacher.Title} {teacher.FirstName} {teacher.LastName} has jus gave you ${grade}, from ${subject.Name} ";
-            client.Send("from@example.com", "to@example.com", "Grade notification", message);
+            string message = $"{teacher.Title} {teacher.FirstName} {teacher.LastName} has just gave you {grade}, from {subject.Name}!";
+            client.Send("noreply@gradinglog.com", student.Login, "Grade notification", message);
         }
     }
 }
