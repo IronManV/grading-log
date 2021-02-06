@@ -1,5 +1,9 @@
 # <center> Grading Log </center>
 
+### Autorzy:
+- Gawin Paweł 11591
+- Gajos Bartosz 11588
+
 Prosta aplikacja webowa działajaca podobnie do dziennika elektronicznego. Logowanie zostało zasymulowane danymi "zahardcodowanymi" w bazie danych w celu rozróżnienia użytkowników. Użytkownicy aplikacji to:
 
 - Prowadzący (Teacher)
